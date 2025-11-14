@@ -1,0 +1,43 @@
+---
+title: "Berger_FinalProject"
+output: html_document
+date: "2025-10-14"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+**If you do have your own data (graduate students, thesis undergrads):**
+1) The questions you would like to answer with your data 
+
+I plan on exploring the impacts of widespread high-severity fire, and previous site legacies, impact plant and pollinator diversity in managed forest. To do so, I will utilize existing vegetation and pollinator collected from 50 different sites in the holiday farm fire and related data containg the calculations of weighted amount of high severity fire area surrounding a collection site, and stand age prior to fire. I will calculate Shannon diversity (alpha diversity) of flowering plants and pollinators for each site and compare. I predict that diversity will decline as high-severity area increases, with older stands illiciting a buffering effect that will display slower declines
+
+2) The structure and metadata of the dataset
+
+All of my vegetation and pollinator data will be in a .csv file. For metadata, a README file is in the process of being completed for the data and currently exists as a google document exists that explains the contents of each column. 
+
+3) Potential additional datasets within that topic area
+
+An additional dataset I will need for my project is the calculated amount of fire severity surronding each site and stand age prior to fire 
+

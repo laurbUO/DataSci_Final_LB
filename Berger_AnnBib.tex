@@ -1,0 +1,492 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{article}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+% definitions for citeproc citations
+\NewDocumentCommand\citeproctext{}{}
+\NewDocumentCommand\citeproc{mm}{%
+  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
+\makeatletter
+ % allow citations to break across lines
+ \let\@cite@ofmt\@firstofone
+ % avoid brackets around text for \cite:
+ \def\@biblabel#1{}
+ \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
+ {\begin{list}{}{%
+  \setlength{\itemindent}{0pt}
+  \setlength{\leftmargin}{0pt}
+  \setlength{\parsep}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+   \setlength{\leftmargin}{\cslhangindent}
+   \setlength{\itemindent}{-1\cslhangindent}
+  \fi
+  % set entry spacing
+  \setlength{\itemsep}{#2\baselineskip}}}
+ {\end{list}}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Annotated Bibliography},
+  pdfauthor={Lauren Berger},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Annotated Bibliography}
+\author{Lauren Berger}
+\date{}
+
+\begin{document}
+\maketitle
+
+\subsubsection{\texorpdfstring{Bowd, E. J. et al.~(2021). \emph{Prior
+disturbance legacy effects on plant recovery post‐high-severity
+wildfire}}{Bowd, E. J. et al.~(2021). Prior disturbance legacy effects on plant recovery post‐high-severity wildfire}}\label{bowd-e.-j.-et-al.-2021.-prior-disturbance-legacy-effects-on-plant-recovery-posthigh-severity-wildfire}
+
+\textbf{Citation} (Bowd, Blair, and Lindenmayer 2021)
+
+\textbf{Summary}: Explores how past land use and disturbance history
+(such as logging and prescribed burning) influence vegetation recovery
+after high-severity wildfire events. Using data from long-term
+ecological monitoring in southeastern Australia, the authors found that
+areas with a legacy of logging or other disturbances exhibited reduced
+native plant richness and increased weed invasion following wildfire.
+The study emphasizes that pre-fire land management plays a critical role
+in shaping post-fire ecological trajectories, with implications for
+biodiversity conservation and landscape resilience in fire-prone
+regions.
+
+\textbf{Evaluation}: Provides empirical evidence that prior stand
+histories impact plant regeneration after fire, serving as a useful
+resource in predicting forest recovery. Study is limited in geographic
+scope and may not be broadly applicable.
+
+\textbf{Relevance}: Provides a detailed overview on statiscal approaches
+for quantifying how varying stand-age catagories influence post fire
+species richness.
+
+\subsubsection{\texorpdfstring{Burkle, L. A. et al.~(2015).
+\emph{Wildfire disturbance and productivity as drivers of plant species
+diversity across spatial
+scales}}{Burkle, L. A. et al.~(2015). Wildfire disturbance and productivity as drivers of plant species diversity across spatial scales}}\label{burkle-l.-a.-et-al.-2015.-wildfire-disturbance-and-productivity-as-drivers-of-plant-species-diversity-across-spatial-scales}
+
+\textbf{Citation}(Burkle, Myers, and Belote 2015)
+
+\textbf{Summary}: This study explores the mechanisms by which wildfire
+patterns and severity influence biodiversity across environmental
+gradients. Found that mixed-diversity fire results in the highest beta
+diversity of forb species, and is higher in burned than unburned
+landscapes at low productivity sites, but lower at high productivity
+sites. Both forbs and woody species had overall higher species richness
+in mixed-severity fire sites than high-severity fire sites. Sampled from
+plant communities along fire and productivity gradients. Performed
+analysis on richness, beta-diversity, and species composition broken
+down by plant class between different areas of fire severity.
+
+\textbf{Evaluation}: Strengths: robust sampling and analysis, applicable
+to management decisions within a region. Weaknesses: limited in
+geographical scope, separates fire into three classes and may leave out
+finer scale.
+
+\textbf{Relevance}: Statistical analysis of species richness is
+relevant; utilizes Hurlbert's Probability of Interspecific Encounter
+(PIE) and a MANOVA. Could be applied, or at least considered, in my
+analysis.
+
+\subsubsection{\texorpdfstring{Fukami, T. (2015). \emph{Historical
+Contingency in Community Assembly: Integrating Niches, Species Pools,
+and Priority
+Effects}}{Fukami, T. (2015). Historical Contingency in Community Assembly: Integrating Niches, Species Pools, and Priority Effects}}\label{fukami-t.-2015.-historical-contingency-in-community-assembly-integrating-niches-species-pools-and-priority-effects}
+
+\textbf{Citation}: (Fukami 2015)
+
+\textbf{Summary}: Provides a definition and detailed overview on how
+historical contingency and priority effects may impact species pools.
+Defines priority effects as the sequence and timing of species arrivals,
+caused by historical contingency (past disturbance events). Priority
+effects may either preempt or modify niches based on species arrival
+time. Explores how regional species pools impacted priority effects come
+to be, and the conditions by which historical contingency would be
+expected.
+
+\textbf{Evaluation}: This paper serves as a strong conceptual basis and
+overview on understanding the factors that influence historical
+contingency, and advocates for it's consideration in evaluating
+community ecology. Expresses that historical contingency alone cannot
+make ecology more predictive, but is an additional tool in organization
+framework.
+
+\textbf{Relevanc}e: Provides support for applying a lense of historical
+contingency and consideration of priority effects in my analysis on how
+plant-pollinator communities are shaped by distance into high severity
+fire patches. Emphasizes that species traits and immigration ability are
+important considerations in the likeliness of priority effects occuring.
+As recolonization is neccesary after a high severity fire events (ie
+seed banks and bees wiped out), my analysis will be (an important
+evaluation.
+
+\subsubsection{\texorpdfstring{Johnstone, J. F. et al.~(2016).
+\emph{Changing disturbance regimes, ecological memory, and forest
+resilience}}{Johnstone, J. F. et al.~(2016). Changing disturbance regimes, ecological memory, and forest resilience}}\label{johnstone-j.-f.-et-al.-2016.-changing-disturbance-regimes-ecological-memory-and-forest-resilience}
+
+\textbf{Citation}: (Johnstone et al. 2016)
+
+\textbf{Summary}: This paper provides a comprehensive synthesis
+detailing how ecological memory persists in forest ecosystems for years,
+decades, or even centuries -- influencing how forests respond to
+subsequent disturbances. Past disturbances can influence forest
+resilience and trigger reorganizations into new ecosystem states. The
+authors highlight that focusing on disturbance legacies can highlight
+where forests may be most vulnerable to climate change.
+
+\textbf{Evaluation}: Provides a useful conceptual framework that is
+clearly defined in terms of what the impacts of changing disturbance
+regimes will be utilizing multiple examples. Not largely quantitative
+and limited in geographic scope
+
+\textbf{Relevance}: Provides a useful framework and definitions for
+which kinds of legacies may persist in forest following disturbance and
+an overview of ecological memory. Serves as a call to test said ideas
+presented in the paper to determine how post-disturbance forest dynamics
+are playing out in the context of historical contingency.
+
+\subsubsection{\texorpdfstring{Miller, J. E. D., \& Safford, H. D.
+(2020). \emph{Are plant community responses to wildfire contingent upon
+historical disturbance
+regimes?}}{Miller, J. E. D., \& Safford, H. D. (2020). Are plant community responses to wildfire contingent upon historical disturbance regimes?}}\label{miller-j.-e.-d.-safford-h.-d.-2020.-are-plant-community-responses-to-wildfire-contingent-upon-historical-disturbance-regimes}
+
+\textbf{Citation}: (Miller and Safford 2020)
+
+\textbf{Summary}: A large scale meta-analysis focused on studies that
+analysed post-fire plant communities. Studies had to have at least two
+levels of burn severity to be compared against one and another and
+species richness reported as the response variable. 32 studies were
+chosen for analysis and all analyzed plot-level (alpha) diversity. While
+the authors hypothesize that theory would predict that diversity should
+be highest at intermediate disturbance levels, the review finds that
+hump-shaped or saturating diversity responses to fire are common in
+ecosystems with historically low- to moderate-severity fires. However,
+in ecosystems historically dominated by high-severity fires, diversity
+often peaks after high-severity disturbances. These patterns contradict
+traditional theory, which predicts stronger negative effects of
+disturbance in low-productivity systems. The authors suggest that
+historical fire regimes (i.e.~historical contingency) should be included
+in disturbance-diversity theory alongside disturbance frequency,
+intensity, and productivity.
+
+\textbf{Evaluation}: Because this research is a meta-analysis - it does
+not delve into community response, however the studies cited stand as a
+useful starting point fo similiar study designs. It is alo difficult to
+compare studies that use different field studies and there is a
+relatively limited body of research on multiple fire regimes that is
+lacking in geographic exctent.
+
+\textbf{Relevance}: This analysis provides support for applying
+historical contingency in consideration of fires impact on diversity.
+Given the cascades history of fire, simply considering disturbance
+theory may not be sufficient.
+
+\subsubsection{\texorpdfstring{Ponisio, L. C. et al.~(2016).
+\emph{Pyrodiversity begets plant-pollinator community
+diversity}}{Ponisio, L. C. et al.~(2016). Pyrodiversity begets plant-pollinator community diversity}}\label{ponisio-l.-c.-et-al.-2016.-pyrodiversity-begets-plant-pollinator-community-diversity}
+
+\textbf{Citation}: (Ponisio et al. 2016)
+
+\textbf{Summary}: Explores whether pyrodiversity impacts biodiversity.
+The study focused on the llilouette Creek Basin of Yosemite National
+Park, in the central Sierra Nevada of California. Plant and pollinator
+community surveys were conducted 9- 12 years after fire and surveyed a
+gradient of fire diversity as confirmed by dNBR information. Generalized
+linear mixed models were utilized to determine if plant-pollinator
+richness for each sample site was impacted by pyrodiversity. The same
+testing was conducted for environmental heterogeneity to analyze the
+additional impact of drought, and species turnover between sites was
+also analyzed. Results indicate that higher pyrodiversity was correlated
+with higher richness of flowering plants, pollinators, and
+plant--pollinator interactions. \textbf{Evaluation}: This study captures
+a large area, pyrodiversity gradient, and conducted a clear interaction
+analysis. The limitations of this study in evaluating pyrodiversity are
+that studies were conducted during a drought year and may be limited in
+applicability to pyrodiversity analysis on sites unimpacted by drought.
+
+\textbf{Relevance}: I will draw primarily on the richness comparison and
+incorporate similar methods in my analysis. This paper also provides a
+relevant and useful framework for calculating pyro-divesity utilizing
+dNBR information.
+
+\subsubsection{\texorpdfstring{Reilly, M. J. (Year). \emph{Cascadia
+Burning: The historic, but not historically unprecedented, 2020
+wildfires in the Pacific Northwest,
+USA}}{Reilly, M. J. (Year). Cascadia Burning: The historic, but not historically unprecedented, 2020 wildfires in the Pacific Northwest, USA}}\label{reilly-m.-j.-year.-cascadia-burning-the-historic-but-not-historically-unprecedented-2020-wildfires-in-the-pacific-northwest-usa}
+
+\textbf{Citation}: (Reilly et al. 2022)
+
+\textbf{Summary}: This paper provides a comprehensive synthesis of the
+environmental drivers that influenced the 2020 labor day fires in the
+West Cascades. While these fires were labeled as an unprecedented
+historical event in terms of size and severity for the region, reports
+from the early 20th century and paleo- and dendro-ecological records
+indicate that similar and potentially even larger wildfires have
+occurred over the past millennium -- sharing many of the same
+characteristics. This paper explores the ecological impacts of large
+fire events in the Western Cascades -- stating that high-severity fire
+events can generate early seral habitat that foster biodiversity -- but
+can also lead to habitat fragmentation and the introduction of
+non-native species that can have detrimental effects on post-fire plant
+and pollinator communities.
+
+\textbf{Evaluation}: This paper provides a detailed and well cited
+history of historical fire regimes into analyzing if the 2020 labor day
+fires were a result of climate change, or more consistent with
+historical fire. A potential weakness that the authors state is that the
+impacts of climate change on dry, eastside winds that caused fire are
+still poorly understood. Another potential weakness is that this paper
+evaluates early colonial records, but has limited input of indigenous
+records pre-dating colonialism about fire history. While Paleoecological
+records reflect a history of fire in the region, it does not draw on how
+impacts of logging practices post-colonialism may have influenced the
+2020 labor day fires.
+
+\textbf{Relevance}: This paper provides a reframing of how to view fire
+history in the region, providing empirical evidence that the 2020 labor
+day fires are not entirely something new for this region. Also raises
+important considerations for variables that are likely to influence
+landscape following fire events, such as species.
+
+\subsubsection{\texorpdfstring{Steel, Z. L. et al.~(2022). \emph{When
+bigger isn't better---Implications of large high-severity wildfire
+patches for avian diversity and community
+composition}}{Steel, Z. L. et al.~(2022). When bigger isn't better---Implications of large high-severity wildfire patches for avian diversity and community composition}}\label{steel-z.-l.-et-al.-2022.-when-bigger-isnt-betterimplications-of-large-high-severity-wildfire-patches-for-avian-diversity-and-community-composition}
+
+\textbf{Citation}(Steel et al. 2022)
+
+\textbf{Summary}: Evaluates the impact of increasing high-severity fire
+patch size, and increased distance from unimpacted edges, on bird
+communities. Utilizes multi-year avian-point count surveys completed in
+27 different fires; collected 10 or more years since disturbance and
+consisting of varying levels of patch sizes. Analysis of both alpha and
+beta diversity found that in comparison to patch edges, and smaller
+patches of high-severity fire, interiors of large patches supported
+fewer species and displayed lower rates of species richness since the
+time of last fire.
+
+\textbf{Evaluation}: As with any ecological field study, sampling
+methods may favor certain bird species. While a null model is not
+explicitly addressed, the authors cite (Chase et al., 2011) and utilize
+a Raup--Crick Index in their analysis of beta-diversity to adjust for
+differences in species richness. In their alpha diversity analysis,
+assessment is based on only species richness, as an analysis of species
+abundance cannot be completed with only occupancy models.
+
+\textbf{Relevance}: This paper is very relevant to my research, as I
+will be completing a similar analysis, but with plants and pollinators.
+The statistical methods employed to calculate alpha diversity and amount
+of high severity fire surrounding a site will both inform my analysis
+and how I choose to model my results. The code for this paper is shared
+in Github.
+
+\subsubsection{\texorpdfstring{Ton, M., \& Krawchuk, M. A. (2016).
+\emph{The Effects of Disturbance History on Ground-Layer Plant Community
+Composition in British
+Columbia}}{Ton, M., \& Krawchuk, M. A. (2016). The Effects of Disturbance History on Ground-Layer Plant Community Composition in British Columbia}}\label{ton-m.-krawchuk-m.-a.-2016.-the-effects-of-disturbance-history-on-ground-layer-plant-community-composition-in-british-columbia}
+
+\textbf{Citation}(Ton and Krawchuk 2016)
+
+\textbf{Summary}: Evaluates if the double disturbance of logging
+followed in quick succession by high-severity fire impacts plant
+community composition in comparison to sites only impacted by high
+severity fire and left unlogged. Plant community data was collected from
+31 sites, and all vascular plants and bryophytes were identified to
+species when possible. Plant traits of height, length, and leaf area
+data were also recorded. Analysis of community richness, diversity, and
+evenness was completed, in addition to analysis on traits, indicator
+species, and composition. Results found a significant difference in
+taxonomic composition and shrub mass between sites, but not in species
+richness, diversity, and evenness.
+
+\textbf{Evaluation}: This study is able to utilize a natural experiment
+design to compare to treatments (logged and unlogged). The field sample
+is robust, and represents all plant groups. This study is limited in
+temporal scale, and produced modest results that may be lacking in
+consideration of broader environmental influences (proximity to roads
+and unburned locations).
+
+\textbf{Relevance}: As my analysis will be examining similar questions,
+this paper supports the utilization of the Shannon-Wiener index to
+calculate diversity. This paper also presents an approach I had not
+considered of using Canonical Correspondence Analysis (CCA) which allows
+for accounting of environmental variability in soil pH and canopy cover.
+While I don't have detailed information on these environmental
+conditions, I may be able to incorporate it into my analysis.
+
+\subsubsection{\texorpdfstring{Ulyshen, M. D. et al.~(Year).
+\emph{Forest pollinator richness declines with distance into burned
+areas}}{Ulyshen, M. D. et al.~(Year). Forest pollinator richness declines with distance into burned areas}}\label{ulyshen-m.-d.-et-al.-year.-forest-pollinator-richness-declines-with-distance-into-burned-areas}
+
+\textbf{Citation}: (Ulyshen et al. 2024)
+
+\textbf{Summary}: Evaluates how pollinator richness and abundance are
+impacted by increased distance into burned areas. Researchers conducted
+pollinator surveys from edges of burned areas towards the center along
+500 meters. Richness and abundance were calculated as response variables
+based upon distance into these burned areas. The authors found a
+significant decline in richness at the center of burn units, but
+abundance did not show a decline. However, in accounting for pollinator
+size, the abundance of small pollinators decreased and large pollinators
+increased with distance into a burn unit. Multiple models were utilized
+in R to test which most accurately modeled these abundance and richness
+relationships.
+
+\textbf{Evaluation}: The strengths of this study are that a it covers a
+broad taxonomic range of pollinators -- not just bees -- to analysis
+impact on pollinator communities as a whole. The study design is
+centered on sites with similar treatments (all in controlled burns),
+providing a homogenous burn area. This is both a strength, and weakness,
+as the proximity to unburned habitats may not be reflective wildfire. As
+with all pollinator surveys, possible bias may exist in sampling.
+
+\textbf{Relevance}: Serves as a useful comparison for testing both
+richness and abundance in proximity for distance into burn. Their
+statistical analysis portion offers a summary of several different
+models, and posses an alternative of not only looking at abundance but
+abundance based on size. This research also provides support for the
+analysis I want to conduct, and suggests a strong relationship between
+proximity to unburned edges and pollinator richness.
+
+\phantomsection\label{refs}
+\begin{CSLReferences}{1}{0}
+\bibitem[\citeproctext]{ref-bowdPriorDisturbanceLegacy2021}
+Bowd, Elle J., David P. Blair, and David B. Lindenmayer. 2021. {``Prior
+Disturbance Legacy Effects on Plant Recovery Post‐high‐severity
+Wildfire.''} \emph{Ecosphere} 12 (5): e03480.
+\url{https://doi.org/10.1002/ecs2.3480}.
+
+\bibitem[\citeproctext]{ref-burkleWildfireDisturbanceProductivity2015}
+Burkle, Laura A., Jonathan A. Myers, and R. Travis Belote. 2015.
+{``Wildfire Disturbance and Productivity as Drivers of Plant Species
+Diversity Across Spatial Scales.''} \emph{Ecosphere} 6 (10): 1--14.
+\url{https://doi.org/10.1890/ES15-00438.1}.
+
+\bibitem[\citeproctext]{ref-fukamiHistoricalContingencyCommunity2015}
+Fukami, Tadashi. 2015. {``Historical {Contingency} in {Community}
+{Assembly}: {Integrating} {Niches}, {Species} {Pools}, and {Priority}
+{Effects}.''} \emph{Annual Review of Ecology, Evolution, and
+Systematics} 46 (1): 1--23.
+\url{https://doi.org/10.1146/annurev-ecolsys-110411-160340}.
+
+\bibitem[\citeproctext]{ref-johnstoneChangingDisturbanceRegimes2016}
+Johnstone, Jill F, Craig D Allen, Jerry F Franklin, Lee E Frelich, Brian
+J Harvey, Philip E Higuera, Michelle C Mack, et al. 2016. {``Changing
+Disturbance Regimes, Ecological Memory, and Forest Resilience.''}
+\emph{Frontiers in Ecology and the Environment} 14 (7): 369--78.
+\url{https://doi.org/10.1002/fee.1311}.
+
+\bibitem[\citeproctext]{ref-millerArePlantCommunity2020}
+Miller, Jesse E. D., and Hugh D. Safford. 2020. {``Are Plant Community
+Responses to Wildfire Contingent Upon Historical Disturbance Regimes?''}
+Edited by Benjamin Poulter. \emph{Global Ecology and Biogeography} 29
+(10): 1621--33. \url{https://doi.org/10.1111/geb.13115}.
+
+\bibitem[\citeproctext]{ref-ponisioPyrodiversityBegetsPlant2016}
+Ponisio, Lauren C., Kate Wilkin, Leithen K. M'Gonigle, Kelly Kulhanek,
+Lindsay Cook, Robbin Thorp, Terry Griswold, and Claire Kremen. 2016.
+{``Pyrodiversity Begets Plant--Pollinator Community Diversity.''}
+\emph{Global Change Biology} 22 (5): 1794--1808.
+\url{https://doi.org/10.1111/gcb.13236}.
+
+\bibitem[\citeproctext]{ref-reillyCascadiaBurningHistoric2022}
+Reilly, Matthew J., Aaron Zuspan, Joshua S. Halofsky, Crystal Raymond,
+Andy McEvoy, Alex W. Dye, Daniel C. Donato, et al. 2022. {``Cascadia
+{Burning}: {The} Historic, but Not Historically Unprecedented, 2020
+Wildfires in the {Pacific} {Northwest}, {\textless{}}Span
+Style="font-Variant:small-Caps;"{\textgreater{}}{USA}{\textless{}}/Span{\textgreater{}}.''}
+\emph{Ecosphere} 13 (6): e4070. \url{https://doi.org/10.1002/ecs2.4070}.
+
+\bibitem[\citeproctext]{ref-steelWhenBiggerIsnt2022}
+Steel, Zachary L., Alissa M. Fogg, Ryan Burnett, L. Jay Roberts, and
+Hugh D. Safford. 2022. {``When Bigger Isn't Better---{Implications} of
+Large High‐severity Wildfire Patches for Avian Diversity and Community
+Composition.''} Edited by Sally Archibald. \emph{Diversity and
+Distributions} 28 (3): 439--53. \url{https://doi.org/10.1111/ddi.13281}.
+
+\bibitem[\citeproctext]{ref-tonEffectsDisturbanceHistory2016}
+Ton, Michael, and Meg Krawchuk. 2016. {``The {Effects} of {Disturbance}
+{History} on {Ground}-{Layer} {Plant} {Community} {Composition} in
+{British} {Columbia}.''} \emph{Forests} 7 (5): 109.
+\url{https://doi.org/10.3390/f7050109}.
+
+\bibitem[\citeproctext]{ref-ulyshenForestPollinatorRichness2024}
+Ulyshen, Michael D., Scott Horn, Conor Fair, Emily J. Forrester, Samm K.
+Reynolds, Andrew Young, and Carl Schmidt. 2024. {``Forest Pollinator
+Richness Declines with Distance into Burned Areas.''} \emph{Forest
+Ecology and Management} 565 (August): 122049.
+\url{https://doi.org/10.1016/j.foreco.2024.122049}.
+
+\end{CSLReferences}
+
+\end{document}

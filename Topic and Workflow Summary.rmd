@@ -1,9 +1,94 @@
 ---
 title: "Topic and Workflow Summary"
-output: html_document
-date: "2025-10-31"
+author: "Lauren Berger"
+output:
+  html_document: default
+  pdf_document: default
+bibliography: GRFP(1).bib
+csl: apa.csl
 ---
 
-Topic Ideas: 
+**Historical contingency in post-fire plant communities: analyzing diversity in managed forests**
 
-Workflow Summary
+**Author:** Lauren Berger 
+
+## Literature review (~5 paragraphs)
+
+### Paragraph 1 — Problem & significance (big‑picture reviews)
+
+Wildfires in the western U.S. have become more frequent and severe[@halofskyChangingWildfireChanging2020]. High-severity
+fires (>95% tree mortality) have increased eight-fold due to long-term fire exclusion and climate change[@halofskyChangingWildfireChanging2020, @parksWarmerDrierFire2020]. Meanwhile, many forests in this region are managed for timber production. As a result, the compounded disturbances of high-severity fire and logging increasingly co-occur, potentially diminishing biodiversity beyond either event alone. While mixed-severity fires create habitat mosaics that support biodiversity,[@ponisioPyrodiversityPromotesInteraction2020a] high-severity fires often simplify communities by reducing local diversity and species turnover[@steelWhenBiggerIsnt2022]. However, few studies have examined the influence of historical contingency in driving these patterns. With wildfire severity and prevalence projected to rise,[@parksWarmerDrierFire2020] understanding how fire shapes community assembly in managed forests is crucial for predicting and managing biodiversity at local and regional scales. 
+…
+
+### Paragraph 2–3 — Past work & data landscape (who/where/how; gaps)
+
+Historical contingency provides a framework to interpret the effects of varying disturbance legacies on community assembly, leading to measurable differences between sites under similar conditions[@fukamiHistoricalContingencyCommunity2015]. Two crucial components of historical contingency —site legacies (enduring characteristics from past events)[@johnstoneChangingDisturbanceRegimes2016] and priority effects (sequence and timing of species arrivals)[@fukamiHistoricalContingencyCommunity2015]—are particularly relevant when assessing post-fire ecosystems.
+
+As plant (and pollinator) communities are both fire-sensitive and central to community assembly, they offer an ideal model for evaluating these concepts[@ponisioPyrodiversityPromotesInteraction2020]. The only two studies on site legacies in harvested forests found that past stand age influences plant composition. Older stands tend to regenerate shrub-dominated assemblages resembling pre-fire communities, while younger stands often contain more disturbance-adapted vegetation[@tonEffectsDisturbanceHistory2016, @bowdPriorDisturbanceLegacy2021]. Yet, effects on local species (α diversity) and turnover (β diversity) remain under-examined. Furthermore, research on plantresponse to fire rarely considers the temporal order of community assembly. As high-severity fire eliminates often eliminates existing seedbanks, input from nearby refugia is necessary for re-colonization.[@cottrellSeedInvasionFilters2008, @ulyshenForestPollinatorRichness2024] Given the increasing extent of high severity fire, priority effects may intensify filtering, favoring plants with traits capable of greater dispersal. While these early-arriving species can rapidly establish populations, they often overlap in ecological roles, leading to communities with higher functional redundancy but lower diversity.
+…
+
+### Paragraph 4 — Purpose & why now
+
+This project will advance knowledge of how disturbance and historical contingency interact to shape ecological communities, addressing a central challenge in disturbance ecology. This research extends community assembly theory to a real-world setting of overlapping disturbances, measuring how site legacies and priority effects influence biodiversity outcomes. Methodologically, this work integrates remote sensing with fine-scale field collected ecological network data and analysis to quantify how fire extent alters diversity, redundancy, and turnover.
+
+…
+
+### Paragraph 5 — Hypotheses (directional) & brief rationale
+
+Due to the influence of historical contingency, I predict that variation in biological legacies associated with pre-fire stand age and subsequent species filtering via priority effects will generate measurable differences in post-fire plant communities. Specifically, I predict that sites embedded within increasingly high-severity patch areas will exhibit: (H1) lower taxonomic plant α diversity and (H2) lower β-diversity and (H3) greater functional redundancy. In all hypotheses, I expect stand age pre-fire to moderate these effects: older stands retain biological legacies that buffer diversity loss, while younger stands display exaggerated responses.
+
+## Dataset identification
+- From the data in PNW survey I will use: veg.csv, landscapeFireMetrics.csv, and I will need to track down stand age information where available. 
+-If data is available, I will also utilize functional trait data from TRY to analyze varying dispersal mechanisms between plants and if area of high severity fire surrounding a site impacts this. 
+
+###  Workflow plan (prose)
+### 1) Cleaning & validation:
+All vegetation data will be cleaned utilizing prep1.rmd to identify NA's in data and compare plant names and spelling to TNRS database. 
+
+To confirm that species ID is appropriate for the Holiday Farm Fire area, data will be exported from OregonFlora utilzing a polygon that encompasses the sampling perimeters and surrounding area, and given a likeliness ranking based on species recording, utilizing the quantile function in R. All species given a rank of "Unlikey" or "NA" will be checked in OregonFlora for verification that recording is highly unlikely, and and dropped from analysis. To determine outliers and possible miscounts in vegetation data, I will generate a list of species with umbels. I will calculate mean and standard deviation for each species to evaluate possible outliers. If data is disproportionately spread out (and species has been confirmed to be miscounted by field crews) then I will determine the appropriate mean to calculate for outlier values. 
+Units are already standardized across datasets 
+
+### 2) Aggregations/derivations: 
+
+I will take the steps below to aggregate the data to filter for year and fire
+ 
+Using the dplyl package, I will filter for only Holiday Farm Fire Stands, removing sites containing 6 because these are enhancements. Next, I will filter the data so only the year 2025 is being viewed. I will summarize species abundance per each Stand, and apply these dimensions to a matrix to be filled. I will then fill in this matrix with abundance values of each species per site using a for loop.  
+
+stands <- unique(veg_2025$Stand)
+species <- unique(veg_2025$PlantGenusSpecies)
+
+
+veg_matrix <- matrix(0, nrow = length(stands), ncol = length(species),
+                     dimnames = list(stands, species))
+
+for (i in seq_along(stands)) {
+  stand_data <- subset(veg_2025, Stand == stands[i])
+  for (j in seq_along(species)) {
+    match_row <- stand_data$PlantGenusSpecies == species[j]
+    if (any(match_row)) {
+      veg_matrix[i, j] <- sum(stand_data$NumPlant[match_row], na.rm = TRUE)
+    }
+  }
+}
+
+### 3) Functions/loops (inputs → outputs):
+
+I will use the below function to calculate hill_taxa function to calculate hill numbers for vegetation richness, shannon diversity, and inverse simpson index (to give more weight to common species). Again, I will create an empty matrix with number of rows equivilant to stands, and three columns for each value to be caulculated. I will use a for loop to calculate hill numbers for each stand. 
+
+Next, I will use left_join to merge hill numbers with fire severity data so values can be plotted together. Once completed, I will again left_join this data with site owner information so that I can compare across owner/site treatments 
+
+
+### 4) Statistical test + programmatic implementation:  
+
+Because I expect Hill numbers to decrease (richness, shannon, and simpson) as area of high severity fire increase, I will use linear regression models to display this relationship --  making sure to account for differing buffers applied to amount of HighSevFire calculations. To see if my results are significant agaist null models I will use the lm() function  for Richness, Shannon, and Simpson; again accounting for buffer size. I will also test if other characteristics of amount of fire severity surronding a site (ie shannon, simpson for fire) display any impact.  
+
+
+### 5) Planned visualizations/tables: 
+
+For visualizations, I plan on using the graphs generated in my linear regression models. I will also use existing dNBR data from the Holiday Farm Fire that displays the extent of differing fire severity, overlayed with stand survey points. For stand survey points, I will assign a color based on Hill value.  
+
+### 6) Risks & mitigations:
+
+An anticipated risk in my dataset is unbalanced sampling due to collector mis-id and miscount of plants. The data cleaning and validating step of my workflow should catch and resolve these errors, but additional visualizations will highlight any additional outliers.
+
+### References
